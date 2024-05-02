@@ -1,0 +1,45 @@
+body {
+  text-align: center;
+  background-image: url("download.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 80px;
+  color: #DBEDF3;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: 3px 0 #DA0463;
+
+}
+
+
+
+.set {
+  margin: 10% auto;
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #DBEDF3;
+  opacity: 0.5;
+}
+
+.red {
+  color: red;
+}
+
+.drum {
+  font-size: 50px;
+  font-family:  cursive;
+  line-height: 2;
+  font-weight: 70px;
+  color: #DA0463;
+  text-shadow: 5px 0 #3f798d;
+  border-radius: 15px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  background-color: white;
+}

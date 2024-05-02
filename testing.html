@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+ 
+<h2>Form Validation</h2>
+ 
+<form id="myForm">
+    <div>
+        <label for="fees">Fees:</label>
+        <input type="text" id="fees" name="fees">
+        <span id="feesError" class="error"></span>
+    </div>
+    <div>
+        <label for="mess">Mess:</label>
+        <input type="text" id="mess" name="mess">
+        <span id="messError" class="error"></span>
+    </div>
+    <div>
+        <label for="extraMoney">Extra Money:</label>
+        <input type="text" id="extraMoney" name="extraMoney">
+        <span id="extraMoneyError" class="error"></span>
+    </div>
+    <button type="submit" id="submitButton" disabled>Submit</button>
+</form>
+ 
+<script>
+    // Get input fields
+    const feesInput = document.getElementById("fees");
+    const messInput = document.getElementById("mess");
+    const extraMoneyInput = document.getElementById("extraMoney");
+ 
+    // Get error elements
+    const feesError = document.getElementById("feesError");
+    const messError = document.getElementById("messError");
+    const extraMoneyError = document.getElementById("extraMoneyError");
+ 
+    // Get submit button
+    const submitButton = document.getElementById("submitButton");
+ 
+    // Add event listeners to input fields
+    feesInput.addEventListener("input", validateFees);
+    messInput.addEventListener("input", validateMess);
+    extraMoneyInput.addEventListener("input", validateExtraMoney);
+ 
+    // Function to validate fees input
+    function validateFees() {
+        const value = parseFloat(feesInput.value);
+        if (isNaN(value) || value <= 0 || value >= 100000) {
+            feesError.textContent = "Amount should be between 0 and 100000";
+            submitButton.disabled = true;
+        } else {
+            feesError.textContent = "";
+            checkForm();
+        }
+    }
+ 
+    // Function to validate mess input
+    function validateMess() {
+        const value = parseFloat(messInput.value);
+        if (isNaN(value) || value <= 0 || value >= 100000) {
+            messError.textContent = "Amount should be between 0 and 100000";
+            submitButton.disabled = true;
+        } else {
+            messError.textContent = "";
+            checkForm();
+        }
+    }
+ 
+    // Function to validate extraMoney input
+    function validateExtraMoney() {
+        const value = parseFloat(extraMoneyInput.value);
+        if (isNaN(value) || value <= 0 || value >= 100000) {
+            extraMoneyError.textContent = "Amount should be between 0 and 100000";
+            submitButton.disabled = true;
+        } else {
+            extraMoneyError.textContent = "";
+            checkForm();
+        }
+    }
+ 
+    // Function to check overall form validity
+    function checkForm() {
+        if (feesError.textContent === "" && messError.textContent === "" && extraMoneyError.textContent === "") {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+</script>
+ 
+</body>
+</html>
